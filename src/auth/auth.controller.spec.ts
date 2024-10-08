@@ -33,7 +33,16 @@ describe('AuthController', () => {
 
   describe('register', () => {
     it('should register a user', async () => {
-      const result = { id: 1, email: 'test@example.com', encryptedId: 'encrypted_id' };
+      const result = { 
+        id: 1, 
+        email: 'test@example.com', 
+        password: 'password', 
+        age: 30, 
+        firstname: 'John', 
+        lastname: 'Doe', 
+        gender: 'male', 
+        encryptedId: 'encrypted_id' 
+      };
       jest.spyOn(authService, 'register').mockImplementation(async () => result);
 
       const response = await controller.register({ email: 'test@example.com', password: 'password' });
