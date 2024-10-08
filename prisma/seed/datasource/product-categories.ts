@@ -1,8 +1,8 @@
 export const sourceProductCategories = [
     {
-        'name': 'Lait',
+        'name': 'milk',
     },
     {
-        'name': 'Chocolat',
+        'name': 'chocolate',
     },
 ]

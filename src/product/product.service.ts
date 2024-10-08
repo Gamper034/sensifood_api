@@ -56,6 +56,7 @@ export class ProductService {
             where: { barcode: ean },
             include: {
                 allergens: true, 
+                categorie: true,
             },
         })
 
@@ -66,15 +67,26 @@ export class ProductService {
         return product;
     }
 
-    getOpenFactFoodProduct(ean: string): Observable<AxiosResponse<any>> {
-        const url = `https://world.openfoodfacts.net/api/v2/product/${ean}`;
+    async getReceipt(query: string) {
+        const apiKey = '000ed250095e474fa03403847d3c9487';
+        const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}&query=${query}`;
         return this.httpService.get(url).pipe(
             map(response => response.data),
             catchError((error) => {
-                throw new Error(`Erreur lors de la récupération du produit : ${error.message}`);
+                throw new Error(`Erreur lors de la récupération des recettes : ${error.message}`);
             }),
         );
     }
+
+    // getOpenFactFoodProduct(ean: string): Observable<AxiosResponse<any>> {
+    //     const url = `https://world.openfoodfacts.net/api/v2/product/${ean}`;
+    //     return this.httpService.get(url).pipe(
+    //         map(response => response.data),
+    //         catchError((error) => {
+    //             throw new Error(`Erreur lors de la récupération du produit : ${error.message}`);
+    //         }),
+    //     );
+    // }
 
     getReceiptProduct(query: string): Observable<AxiosResponse<any>> {
         const apiKey = '000ed250095e474fa03403847d3c9487';
