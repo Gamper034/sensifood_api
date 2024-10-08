@@ -5,7 +5,7 @@ export const sourceAllergen = [
     { "id": 4, "name": "Crème", "id_categorie": 1 },
     { "id": 5, "name": "Amandes", "id_categorie": 2 },
     { "id": 6, "name": "Noisettes", "id_categorie": 2 },
-    { "id": 7, "name": "Noix de cajou", "id_categorie": 2 },
+    { "id": 7, "name": "Noix", "id_categorie": 2 },
     { "id": 8, "name": "Pistaches", "id_categorie": 2 },
     { "id": 9, "name": "Gluten", "id_categorie": 3 },
     { "id": 10, "name": "Blé", "id_categorie": 3 },
