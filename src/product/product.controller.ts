@@ -6,12 +6,18 @@ export class ProductController {
   constructor(private productService: ProductService) {}
 
   @Get('/:ean')
-  getProduct(@Param('ean') ean: string) {
-    return this.productService.getProduct(ean);
+  findOne(@Param('ean') ean: string) {
+    return this.productService.findOne(ean);
   }
 
-  @Get('/receipt/:query')
-  getReceipt(@Param('query') query: string) {
-    return this.productService.getReceipt(query);
+  @Get('/search/:product')
+  find(@Param('product') product: string) {
+    return this.productService.find(product);
+  }
+
+
+  @Get('/receipt/:category')
+  findReceipt(@Param('category') category: string) {
+    return this.productService.findReceipt(category);
   }
 }
