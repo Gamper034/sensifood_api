@@ -4,8 +4,7 @@ export const sourceUser = [
         "email": "john.doe@example.com",
         "password": "password123",
         "age": 30,
-        "firstname": "John",
-        "lastname": "Doe",
+        "name": "John Doe",
         "gender": "Male",
     },
     {
@@ -13,8 +12,7 @@ export const sourceUser = [
         "email": "jane.smith@example.com",
         "password": "password456",
         "age": 25,
-        "firstname": "Jane",
-        "lastname": "Smith",
+        "name": "Jane Smith",
         "gender": "Female",
     },
     {
@@ -22,8 +20,7 @@ export const sourceUser = [
         "email": "alice.johnson@example.com",
         "password": "alicepass789",
         "age": 22,
-        "firstname": "Alice",
-        "lastname": "Johnson",
+        "name": "Alice Johnson",
         "gender": "Female",
     },
     {
@@ -31,8 +28,7 @@ export const sourceUser = [
         "email": "michael.brown@example.com",
         "password": "michaelpass321",
         "age": 35,
-        "firstname": "Michael",
-        "lastname": "Brown",
+        "name": "Michael Brown",
         "gender": "Male",
     },
     {
@@ -40,8 +36,7 @@ export const sourceUser = [
         "email": "linda.white@example.com",
         "password": "lindapass654",
         "age": 28,
-        "firstname": "Linda",
-        "lastname": "White",
+        "name": "Linda White",
         "gender": "Female",
     },
     {
@@ -49,8 +44,7 @@ export const sourceUser = [
         "email": "robert.jones@example.com",
         "password": "robertpass987",
         "age": 40,
-        "firstname": "Robert",
-        "lastname": "Jones",
+        "name": "Robert Jones",
         "gender": "Male",
     },
     {
@@ -58,8 +52,7 @@ export const sourceUser = [
         "email": "susan.miller@example.com",
         "password": "susanpass123",
         "age": 32,
-        "firstname": "Susan",
-        "lastname": "Miller",
+        "name": "Susan Miller",
         "gender": "Female",
     },
     {
@@ -67,8 +60,7 @@ export const sourceUser = [
         "email": "david.moore@example.com",
         "password": "davidpass456",
         "age": 27,
-        "firstname": "David",
-        "lastname": "Moore",
+        "name": "David Moore",
         "gender": "Male",
     },
     {
@@ -76,8 +68,7 @@ export const sourceUser = [
         "email": "emma.taylor@example.com",
         "password": "emmapass789",
         "age": 24,
-        "firstname": "Emma",
-        "lastname": "Taylor",
+        "name": "Emma Taylor",
         "gender": "Female",
     },
     {
@@ -85,8 +76,7 @@ export const sourceUser = [
         "email": "daniel.anderson@example.com",
         "password": "danielpass321",
         "age": 31,
-        "firstname": "Daniel",
-        "lastname": "Anderson",
+        "name": "Daniel Anderson",
         "gender": "Male",
     }
 ]

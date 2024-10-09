@@ -1,7 +1,8 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { CreateUserDtoType } from 'src/dtos/create-user.dto';
 
-@Controller('auth')
+@Controller('/auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
@@ -10,8 +11,8 @@ export class AuthController {
     return this.authService.login(loginDto);
   }
 
-  @Post('register')
-  async register(@Body() registerDto: any) {
-    return this.authService.register(registerDto);
+  @Post('/signup')
+  async register(@Body() body: CreateUserDtoType) {
+    return this.authService.signup(body);
   }
 }

@@ -17,10 +17,9 @@ model User {
   id        Int        @default(autoincrement()) @id
   email     String     @unique
   password  String
-  age       Int
-  firstname String
-  lastname  String
-  gender    String
+  age       Int?
+  name      String
+  gender    String?
   allergens Allergen[] @relation("UserAllergens")
 }
 

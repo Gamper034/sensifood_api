@@ -41,8 +41,7 @@ async function main() {
                 email: user.email,
                 password: user.password,
                 age: user.age,
-                firstname: user.firstname,
-                lastname: user.lastname,
+                name: user.name,
                 gender: user.gender,
                 allergens: {
                     connect: faker.helpers.arrayElements(

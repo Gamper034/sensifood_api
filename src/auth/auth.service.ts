@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service';
 import * as bcrypt from 'bcryptjs';
+import { CreateUserDtoType } from 'src/dtos/create-user.dto';
 
 @Injectable()
 export class AuthService {
@@ -31,13 +32,17 @@ export class AuthService {
     };
   }
 
-  async register(user: any) {
-    const encryptedId = await this.encryptIdentifier(user.id.toString());
-    return this.prisma.user.create({
-      data: {
-        ...user,
-        encryptedId,
-      },
-    });
+  // async register(user: CreateUserDtoType) {
+  //   const encryptedId = await this.encryptIdentifier(user.id.toString());
+  //   return this.prisma.user.create({
+  //     data: {
+  //       ...user,
+  //       encryptedId,
+  //     },
+  //   });
+  // }
+
+  async signup(user: CreateUserDtoType) {
+    return user;
   }
 }
