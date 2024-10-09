@@ -1,7 +1,9 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { ProductService } from './product.service';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('product')
+@UseGuards(JwtAuthGuard)
 export class ProductController {
   constructor(private productService: ProductService) {}
 

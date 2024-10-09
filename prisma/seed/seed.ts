@@ -5,6 +5,7 @@ import { sourceUser } from './datasource/user';
 import { faker } from '@faker-js/faker';
 import { sourceProductCategories } from './datasource/product-categories';
 import { sourceProduct } from './datasource/product';
+import * as bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
@@ -36,10 +37,11 @@ async function main() {
 
 
     for (const user of sourceUser) {
+        let passwordUser = await bcrypt.hash(user.password, 10);
         await prisma.user.create({
             data: {
                 email: user.email,
-                password: user.password,
+                password: passwordUser,
                 age: user.age,
                 name: user.name,
                 gender: user.gender,
