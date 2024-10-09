@@ -6,7 +6,7 @@ Ce projet utilise [NestJS](https://nestjs.com/) et [Prisma](https://www.prisma.i
 
 - Node.js (version 14 ou supérieure)
 - npm ou yarn
-- Docker (pour la base de données)
+- base de donnée au choix nécessaire 
 
 ## Installation
 
@@ -67,6 +67,9 @@ Ce projet utilise [NestJS](https://nestjs.com/) et [Prisma](https://www.prisma.i
   ```bash
   yarn prisma generate
   ```
+
+5. Générez de la donnée dans la base :
+  npx prisma migrate reset
 
 ## Démarrage du serveur
 
