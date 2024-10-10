@@ -1,6 +1,8 @@
-import { Controller, Get, Param, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { AllergenDtoType } from 'src/dtos/user.dto';
+import { AlternativeDtoType } from 'src/dtos/alternative.dto';
 
 @Controller('product')
 @UseGuards(JwtAuthGuard)
@@ -21,5 +23,10 @@ export class ProductController {
   @Get('/receipt/:category')
   findReceipt(@Param('category') category: string) {
     return this.productService.findReceipt(category);
+  }
+
+  @Post('/alternative')
+  findAlternative(@Body() body: AlternativeDtoType) {
+    return this.productService.findAlternative(body);
   }
 }

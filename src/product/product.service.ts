@@ -2,6 +2,9 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { HttpService } from '@nestjs/axios';
 import { catchError, map, NotFoundError, Observable } from 'rxjs';
+import { AllergenDtoType } from 'src/dtos/user.dto';
+import { AlternativeDtoType } from 'src/dtos/alternative.dto';
+import { log } from 'console';
  
 
 @Injectable()
@@ -53,12 +56,33 @@ export class ProductService {
         );
     }
 
-    async findAlternative(ean: string) {
-        const product = this.findOne(ean);
-
-        if (!product) {
+    async findAlternative(alternatives: AlternativeDtoType) {
+        const allergenIds = alternatives.allergens.map((allergen) => allergen.id);
+        console.log(allergenIds, alternatives.category);
+        const products = await this.prisma.product.findMany({
+            where: {
+                allergens: {
+                    some: {
+                        id: {
+                            notIn: allergenIds,
+                        },
+                    },
+                },
+                categorie: {
+                    name: alternatives.category,
+                },
+            },
+            include: {
+                allergens: true,
+                categorie: true,
+            },
+        });
+        console.log(products);
+        if (!products || products.length === 0) {
             throw new NotFoundException('Produit non trouvé');
         }
+        return products;
+
         
     }
 
