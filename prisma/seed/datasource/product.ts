@@ -60,5 +60,67 @@ export const sourceProduct = [
             },
         },
 
+    },
+    {
+        "name": "Nutella biscuits t22",
+        "brand": "Ferrero",
+        "barcode": "8000500310427",
+        // "allergens": [{ "id": 7, "name": "Noix", "id_categorie": 2 }],
+        "allergens": {
+            connect: [
+                { id: 1 }, // Associe l'allergène "Produits Laitiers"
+                { id: 7 },
+                { id: 9 }
+            ],
+        },
+        "ingredients": "Pâte à tartiner aux NOISETTES et au cacao 40% (sucre, huile de palme, NOISETTES 13%, LAIT écrémé en poudre 8,7%, cacao maigre 7,4%, émulsifiants : lécithines [SOJA] ; vanilline), farine de FROMENT 32%, graisses végétales (palme, palmiste), sucre de canne 8,5%, LACTOSE, son de BLE, LAIT en poudre, extrait en poudre de malt d'ORGE et de maïs, miel, poudres à lever (disphosphate disodique, carbonate acide d'ammonium, carbonate acide de sodium), cacao maigre, sel, amidon de FROMENT, farine d'ORGE malté, émulsifiants : lécithines [SOJA] ; vanilline.",
+        "image": "https://images.openfoodfacts.org/images/products/800/050/031/0427/front_fr.356.400.jpg",
+        // "id_categorie": 1,
+        "categorie": {
+            connect: {
+                id: 3,
+            },
+        },
+
+    },
+    {
+        "name": "SS GLUT MADELEINES - Gerblé - 200 g",
+        "brand": "Gerblé",
+        "barcode": "3175681054158",
+        // "allergens": [{ "id": 7, "name": "Noix", "id_categorie": 2 }],
+        "allergens": {
+            connect: [
+                { id: 17 }, // Associe l'allergène "Produits Laitiers"
+            ],
+        },
+        "ingredients": "Œufs 28,8%, huile de colza, fécule de pomme de terre, farine de riz 13,3%, sucre, dextrose, humectant glycérol, sirop de glucose, fibres de chicorée : inuline, arômes, épaississant: gomme guar, amidon de riz, émulsifiant : lecithines de colza, poudres à lever acide citrique et carbonates de sodium, sel, alcool éthylique.",
+        "image": "https://images.openfoodfacts.org/images/products/317/568/105/4158/front_fr.46.400.jpg",
+        // "id_categorie": 1,
+        "categorie": {
+            connect: {
+                id: 3,
+            },
+        },
+
+    },
+    {
+        "name": "petit déjeuner miel et pépites de chocolat - belvita - 435 g",
+        "brand": "Belvita",
+        "barcode": "16811207",
+        // "allergens": [{ "id": 7, "name": "Noix", "id_categorie": 2 }],
+        "allergens": {
+            connect: [
+                { id: 1 }, // Associe l'allergène "Produits Laitiers"
+            ],
+        },
+        "ingredients": "Cocoa mass #, cane sugar #, cocoa butter #, vanilla extract #. # = Certified Organic. May contain nuts, milk. ORGANIC CHOCOLATE: MINIMUM COCOA SOLIDS 70 %.",
+        "image": "https://images.openfoodfacts.org/images/products/000/001/681/1207/front_fr.80.400.jpg",
+        // "id_categorie": 1,
+        "categorie": {
+            connect: {
+                id: 3,
+            },
+        },
+
     }
 ]

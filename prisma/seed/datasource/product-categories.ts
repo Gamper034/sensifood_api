@@ -5,4 +5,7 @@ export const sourceProductCategories = [
     {
         'name': 'chocolate',
     },
+    {
+        'name': 'snack'
+    }
 ]

@@ -53,5 +53,14 @@ export class ProductService {
         );
     }
 
+    async findAlternative(ean: string) {
+        const product = this.findOne(ean);
+
+        if (!product) {
+            throw new NotFoundException('Produit non trouvé');
+        }
+        
+    }
+
     
 }
