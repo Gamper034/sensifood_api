@@ -76,6 +76,7 @@ export const sourceUser = [
         "email": "daniel.anderson@example.com",
         "password": "danielpass321",
         "age": 31,
+        
         "name": "Daniel Anderson",
         "gender": "Male",
     }
