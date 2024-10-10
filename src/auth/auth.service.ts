@@ -1,5 +1,5 @@
 import * as bcrypt from 'bcryptjs';
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDtoType } from '../dtos/create-user.dto';
@@ -14,6 +14,15 @@ export class AuthService {
   ) { }
 
   async signup(user: CreateUserDtoType) {
+
+    if (
+      user.password.length < 8 ||
+      !/[!@#$%^&*(),.?":{}|<>]/.test(user.password) ||
+      !/\d/.test(user.password) ||
+      !/[A-Z]/.test(user.password)
+    ) {
+      throw new UnauthorizedException('Le mot de passe doit contenir au moins 8 caractères, une majuscule, un chiffre et un caractère spécial');
+    }
     // Vérifier si l'email existe déjà
     const existingUser = await this.prisma.user.findUnique({
       where: { email: user.email },
@@ -22,6 +31,8 @@ export class AuthService {
     if (existingUser) {
       throw new UnauthorizedException('Cet email est déjà utilisé');
     }
+
+
 
     // Hacher le mot de passe avec un grain de sel
     const salt = await bcrypt.genSalt();
