@@ -16,7 +16,7 @@ import { AuthController } from './auth.controller';
     PassportModule.register({ defaultStrategy: 'jwt' }),
     JwtModule.register({
       secret: 'secret',
-      // signOptions: { expiresIn: null }
+      // signOptions: { expiresIn: '15s' }
     })
   ],
   providers: [AuthService, PrismaService, JwtStrategy],

@@ -4,6 +4,7 @@ import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDtoType } from '../dtos/create-user.dto';
 import { LoginUserDtoType } from '../dtos/login-user.dto';
+import { UserDto, UserDtoType } from 'src/dtos/user.dto';
 
 @Injectable()
 export class AuthService {
@@ -42,10 +43,11 @@ export class AuthService {
     };
   }
 
-  async signin(user: LoginUserDtoType) {
+  async signin(user: LoginUserDtoType): Promise<{ user: UserDtoType; access_token: string }> {
     // Récupérer l'utilisateur de la base de données en utilisant l'email
     const existingUser = await this.prisma.user.findUnique({
       where: { email: user.email },
+      include: { allergens: true },
     });
 
     if (!existingUser) {
@@ -63,12 +65,10 @@ export class AuthService {
     const payload = { username: existingUser.email, sub: existingUser.id };
     const token = this.jwtService.sign(payload);
 
+    const userDto = UserDto.parse(existingUser);
+
     return {
-      user: {
-        id: existingUser.id,
-        email: existingUser.email,
-        name: existingUser.name,
-      },
+      user: userDto,
       access_token: token,
     };
   }
