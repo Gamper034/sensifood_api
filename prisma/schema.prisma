@@ -21,6 +21,7 @@ model User {
   name      String
   gender    String?
   allergens Allergen[] @relation("UserAllergens")
+  logProducts LogProduct[]
 }
 
 model Allergen {
@@ -50,6 +51,7 @@ model Product {
   id_categorie Int
   categorie    ProductCategorie @relation(fields: [id_categorie], references: [id])
   allergens  Allergen[] @relation("ProductAllergens") // Many-to-Many relation
+  logProducts LogProduct[]  @relation("ProductLog") // Ajout de la relation opposée
 }
 
 model ProductCategorie {
@@ -57,6 +59,15 @@ model ProductCategorie {
   name     String
   products Product[]
 
+}
+
+model LogProduct {
+  id         Int      @id @default(autoincrement())
+  id_product Int
+  id_user    Int
+  date       DateTime @default(now())
+  product    Product  @relation(fields: [id_product], references: [id], name: "ProductLog")
+  user       User     @relation(fields: [id_user], references: [id])
 }
 
 

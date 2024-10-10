@@ -1,8 +1,9 @@
-import { Body, Controller, Get, Param, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseGuards, Headers } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 import { AllergenDtoType } from 'src/dtos/user.dto';
 import { AlternativeDtoType } from 'src/dtos/alternative.dto';
+import { SetLogDtoType } from 'src/dtos/set-log.dto';
 
 @Controller('product')
 @UseGuards(JwtAuthGuard)
@@ -29,4 +30,5 @@ export class ProductController {
   findAlternative(@Body() body: AlternativeDtoType) {
     return this.productService.findAlternative(body);
   }
+
 }

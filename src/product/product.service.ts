@@ -5,13 +5,16 @@ import { catchError, map, NotFoundError, Observable } from 'rxjs';
 import { AllergenDtoType } from 'src/dtos/user.dto';
 import { AlternativeDtoType } from 'src/dtos/alternative.dto';
 import { log } from 'console';
+import { AuthService } from 'src/auth/auth.service';
+import { UserService } from 'src/user/user.service';
  
 
 @Injectable()
 export class ProductService {
     constructor(
         private readonly prisma: PrismaService,
-        private readonly httpService: HttpService
+        private readonly httpService: HttpService,
+        private readonly userService: UserService,
     ) {}
 
 
@@ -85,6 +88,9 @@ export class ProductService {
 
         
     }
+
+
+    
 
     
 }
